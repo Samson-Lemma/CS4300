@@ -1,7 +1,10 @@
+"""Task 7: Demonstrate use of the requests package."""
+
 import requests
 
 
 def get_json(url):
+    """Request JSON data from a URL and return the parsed response."""
     response = requests.get(url, timeout=5)
     response.raise_for_status()
     return response.json()

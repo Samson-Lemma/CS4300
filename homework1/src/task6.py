@@ -1,4 +1,10 @@
+"""Task 6: Read text files and count words."""
+
+from pathlib import Path
+
+
 def count_words(filename):
+    """Return the number of whitespace-separated words in a text file."""
     with open(filename, "r", encoding="utf-8") as file:
         contents = file.read()
 
@@ -6,4 +12,5 @@ def count_words(filename):
 
 
 if __name__ == "__main__":
-    print(count_words("task6_read_me.txt"))
+    file_path = Path(__file__).resolve().parents[1] / "task6_read_me.txt"
+    print(count_words(file_path))

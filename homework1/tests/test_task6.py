@@ -1,3 +1,7 @@
+"""Tests for Task 6 file handling."""
+
+from pathlib import Path
+
 import pytest
 
 from src.task6 import count_words
@@ -14,6 +18,7 @@ from src.task6 import count_words
     ],
 )
 def test_count_words(tmp_path, contents, expected):
+    """Test word counting using several temporary text files."""
     file_path = tmp_path / "test.txt"
     file_path.write_text(contents, encoding="utf-8")
 
@@ -21,9 +26,13 @@ def test_count_words(tmp_path, contents, expected):
 
 
 def test_missing_file():
+    """Test that a missing file raises FileNotFoundError."""
     with pytest.raises(FileNotFoundError):
         count_words("does_not_exist.txt")
 
 
 def test_assignment_file():
-    assert count_words("task6_read_me.txt") > 0
+    """Test the exact word count of the assignment text file."""
+    file_path = Path(__file__).resolve().parents[1] / "task6_read_me.txt"
+
+    assert count_words(file_path) == 104

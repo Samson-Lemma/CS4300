@@ -1,4 +1,8 @@
+"""Task 2: Demonstrate common Python data types."""
+
+
 def get_data_types():
+    """Return examples of integer, float, string, and boolean values."""
     integer_value = 42
     float_value = 3.14
     string_value = "Python"
@@ -9,4 +13,3 @@ def get_data_types():
 
 if __name__ == "__main__":
     print(get_data_types())
-    

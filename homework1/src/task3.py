@@ -1,4 +1,8 @@
+"""Task 3: Demonstrate Python control structures."""
+
+
 def classify_number(number):
+    """Return whether a number is positive, negative, or zero."""
     if number > 0:
         return "positive"
     elif number < 0:
@@ -8,6 +12,7 @@ def classify_number(number):
 
 
 def first_ten_primes():
+    """Return the first ten prime numbers."""
     primes = []
     number = 2
 
@@ -28,6 +33,7 @@ def first_ten_primes():
 
 
 def sum_one_to_one_hundred():
+    """Return the sum of the numbers from 1 through 100 using a while loop."""
     total = 0
     number = 1
 

@@ -28,6 +28,4 @@ Run all tests from inside the `homework1` directory with:
 
 ```bash
 python3 -m pytest -v
-```git add homework1/README.md
-git commit -m "Fix homework1 README"
-git push
+```

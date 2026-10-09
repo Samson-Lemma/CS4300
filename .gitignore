@@ -2,3 +2,9 @@ homework1_env/
 __pycache__/
 *.pyc
 .pytest_cache/
+homework2_env/
+homework2/db.sqlite3
+homework2_env/
+homework2/db.sqlite3
+homework2/htmlcov/
+homework2/.coverage

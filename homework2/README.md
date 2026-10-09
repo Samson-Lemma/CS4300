@@ -105,14 +105,14 @@ coverage run --source=bookings manage.py test bookings
 coverage report -m
 ```
 
-Current coverage is approximately 98%.
+Current test coverage is approximately 98%.
 
 ## Deployment
 
 Render URL:
 
-`ADD_RENDER_URL_HERE`
+https://cs4300-movie-theater.onrender.com
 
 ## AI Usage
 
-AI was used  tool this assignment to help clarify the assignment requirements, explain Django concepts, troubleshoot errors, and provide guidance when I was unsure how to structure or test parts of the application.
+AI was used to help clarify the assignment requirements, explain Django concepts, troubleshoot errors, and provide guidance when I was unsure how to structure or test parts of the application. I reviewed and tested the work before including it in the final project.

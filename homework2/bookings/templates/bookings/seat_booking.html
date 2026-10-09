@@ -1,0 +1,136 @@
+{% extends "bookings/base.html" %}
+
+
+{% block title %}
+Book Seat | {{ movie.title }}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="row justify-content-center">
+
+    <div class="col-lg-8">
+
+        <div class="card shadow border-0">
+
+            <div class="card-header bg-primary text-white">
+
+                <h2 class="mb-0">
+                    Book a Seat
+                </h2>
+
+            </div>
+
+
+            <div class="card-body p-4">
+
+                <h3>
+                    {{ movie.title }}
+                </h3>
+
+                <p class="text-muted">
+                    {{ movie.description }}
+                </p>
+
+                <p>
+                    <strong>Duration:</strong>
+                    {{ movie.duration }} minutes
+                </p>
+
+                <hr>
+
+
+                {% if seats %}
+
+                    <h5 class="mb-3">
+                        Select an available seat
+                    </h5>
+
+
+                    <form method="post">
+
+                        {% csrf_token %}
+
+
+                        <div class="row g-3">
+
+                            {% for seat in seats %}
+
+                                <div class="col-4 col-md-3 col-lg-2">
+
+                                    <input
+                                        type="radio"
+                                        class="btn-check"
+                                        name="seat_id"
+                                        id="seat-{{ seat.id }}"
+                                        value="{{ seat.id }}"
+                                        autocomplete="off"
+                                    >
+
+                                    <label
+                                        class="btn btn-outline-success w-100"
+                                        for="seat-{{ seat.id }}"
+                                    >
+                                        {{ seat.seat_number }}
+                                    </label>
+
+                                </div>
+
+                            {% endfor %}
+
+                        </div>
+
+
+                        <div class="d-grid gap-2 mt-4">
+
+                            <button
+                                type="submit"
+                                class="btn btn-primary btn-lg"
+                            >
+                                Confirm Booking
+                            </button>
+
+                            <a
+                                href="{% url 'movie_list' %}"
+                                class="btn btn-outline-secondary"
+                            >
+                                Cancel
+                            </a>
+
+                        </div>
+
+                    </form>
+
+                {% else %}
+
+                    <div class="alert alert-warning">
+
+                        <h5>
+                            No seats available.
+                        </h5>
+
+                        <p class="mb-0">
+                            All seats are currently booked.
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="{% url 'movie_list' %}"
+                        class="btn btn-secondary"
+                    >
+                        Back to Movies
+                    </a>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

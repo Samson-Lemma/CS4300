@@ -1,0 +1,118 @@
+{% extends "bookings/base.html" %}
+
+
+{% block title %}
+My Bookings | Movie Theater
+{% endblock %}
+
+
+{% block content %}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+
+    <div>
+
+        <h1 class="fw-bold mb-1">
+            My Booking History
+        </h1>
+
+        <p class="text-muted mb-0">
+            View your previous movie reservations.
+        </p>
+
+    </div>
+
+    <a
+        href="{% url 'movie_list' %}"
+        class="btn btn-primary"
+    >
+        Book Another Movie
+    </a>
+
+</div>
+
+
+{% if bookings %}
+
+    <div class="card shadow-sm border-0">
+
+        <div class="table-responsive">
+
+            <table class="table table-hover align-middle mb-0">
+
+                <thead class="table-dark">
+
+                    <tr>
+                        <th>Movie</th>
+                        <th>Seat</th>
+                        <th>Duration</th>
+                        <th>Booking Date</th>
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    {% for booking in bookings %}
+
+                        <tr>
+
+                            <td>
+                                <strong>
+                                    {{ booking.movie.title }}
+                                </strong>
+                            </td>
+
+                            <td>
+
+                                <span class="badge bg-success fs-6">
+                                    {{ booking.seat.seat_number }}
+                                </span>
+
+                            </td>
+
+                            <td>
+                                {{ booking.movie.duration }} minutes
+                            </td>
+
+                            <td>
+                                {{ booking.booking_date|date:"M d, Y g:i A" }}
+                            </td>
+
+                        </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+{% else %}
+
+    <div class="alert alert-info text-center p-5">
+
+        <h4>
+            You have no bookings yet.
+        </h4>
+
+        <p>
+            Choose a movie and reserve your first seat.
+        </p>
+
+        <a
+            href="{% url 'movie_list' %}"
+            class="btn btn-primary"
+        >
+            Browse Movies
+        </a>
+
+    </div>
+
+{% endif %}
+
+{% endblock %}

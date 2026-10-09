@@ -1,0 +1,4 @@
+behave==1.3.3
+coverage==7.16.2
+Django==6.1.2
+djangorestframework==3.18.3
